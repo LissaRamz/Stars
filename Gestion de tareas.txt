@@ -1,0 +1,30 @@
+Create database Gestion;
+use Gestion;
+create table Tareas (id int unique, usuario char(100), titulo char(50), descripcion char(100), fecha date, estado char(20));
+insert into Tareas (id, usuario, titulo, descripcion, fecha, estado) values (01,"Viridiana Gonzalez Ramirez","Tarea1","Crea una tabla", 180523, "Concluida");
+insert into Tareas (id, usuario, titulo, descripcion, fecha, estado) values (02,"Paloma Cortez Camacho","Tarea2","Crea un usuario", 200523, "En progreso");
+insert into Tareas (id, usuario, titulo, descripcion, fecha, estado) values (03, "Lizath Ramirez Arzate", "Tarea3","Crea una base de datos completa", 220523, "Pendiente");
+insert into Tareas (id, usuario, titulo, descripcion, fecha, estado) values (04, "Lizath Ramirez Arzate", "Tarea4","Crea una pagina", 250523, "Concluida");
+insert into Tareas (id, usuario, titulo, descripcion, fecha, estado) values (05,"Viridiana Gonzalez Ramirez","Tarea5","Crea un crud", 260523, "Pendiente");
+
+create table etiquetas (id int primary key, tarea char(50), fecha date, calificacion int (10));
+insert into etiquetas (id, tarea, fecha, calificacion) values (01,"Tarea1", 180523, 90);
+insert into etiquetas (id, tarea, fecha, calificacion) values (02,"Tarea2", 200523, 50);
+insert into etiquetas (id, tarea, fecha, calificacion)values (03,"Tarea3", 220523, 0);
+insert into etiquetas (id, tarea, fecha, calificacion) values (04,"Tarea4", 250523, 100);
+insert into etiquetas (id, tarea, fecha, calificacion) values (05,"Tarea5", 260523, 0);
+
+create table Usuarios (id int not null, tipo_de_usuario char (50), nombre char(100), contraseña int(100));
+insert into Usuarios (id, tipo_de_usuario, nombre, contraseña) values (01,"Alumno", "Viridiana Gonzalez Ramirez", 010101);
+insert into Usuarios (id, tipo_de_usuario, nombre, contraseña) values (02,"Docente", "Sandra Huerta Nuñez", 5923);
+insert into Usuarios (id, tipo_de_usuario, nombre, contraseña) values (03,"Alumno", "Paloma Cortez Camacho", 1520);
+insert into Usuarios (id, tipo_de_usuario, nombre, contraseña) values (04,"Alumno", "Lizath Ramirez Arzate", 4593);
+insert into Usuarios (id, tipo_de_usuario, nombre, contraseña) values (05,"Docente", "Karen Reyes Vazquez", 7853);
+
+select * from  Tareas where estado="pendiente";
+select * from  Tareas where estado="concluida";
+select * from Tareas where usuario="Lizath Ramirez Arzate";
+select estado, count(*) from Tareas group by estado;
+select id, count(*) from Tareas group by id;
+
+show tables;
